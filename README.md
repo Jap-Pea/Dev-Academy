@@ -1,2 +1,2 @@
-# Jay-Pea.github.io
-Jay-Pea website
+# Jap-Pea.github.io
+Jap-Pea website
