@@ -4,11 +4,21 @@
     <title>My blog</title>
     <style>
       body {
-        background-color: #0f0f0f;
+        background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #005f73);
         color: white;
         font-family: sans-serif;
         text-align: center;
         margin-top: 50px;
+        line-height: 1.6;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      p {
+        max-width: 600px;
+        margin: 10px auto;
       }
 
       button {
@@ -25,6 +35,28 @@
 
       button:hover {
         background-color: #00bfa6;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px auto;
+        max-width: 300px;
+      }
+
+      ul li {
+        margin: 10px 0;
+      }
+
+      a {
+        color: #00ffcc;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
     </style>
   </head>
@@ -46,9 +78,22 @@
     <p>This is the beginning of my website home page.</p>
     <p>It will eventually contain a list of links to all my blogs.</p>
 
-    <!-- 🎮 Game Button -->
     <button onclick="window.location.href='game.html'">
       Click here to play a mini-game
     </button>
+
+    <p>Check out my work:</p>
+    <ul>
+      <li>
+        <a href="https://github.com/Jap-Pea" target="_blank" rel="noopener"
+          >My GitHub Profile</a
+        >
+      </li>
+      <li>
+        <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener"
+          >Click here for a surprise 😉</a
+        >
+      </li>
+    </ul>
   </body>
 </html>
