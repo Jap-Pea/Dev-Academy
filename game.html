@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mini Game</title>
+    <style>
+      body {
+        background-color: #1c1c1c;
+        color: white;
+        text-align: center;
+        font-family: sans-serif;
+        padding-top: 50px;
+      }
+
+      #count {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        font-size: 24px;
+        padding: 15px 30px;
+        background-color: #00ffcc;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #00bfa6;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Click the Button!</h1>
+    <div id="count">0</div>
+    <button onclick="increase()">Click Me</button>
+
+    <script>
+      let count = 0
+      function increase() {
+        count++
+        document.getElementById('count').textContent = count
+      }
+    </script>
+  </body>
+</html>

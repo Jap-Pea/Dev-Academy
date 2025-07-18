@@ -7,12 +7,31 @@
         background-color: #0f0f0f;
         color: white;
         font-family: sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      button {
+        background-color: #00ffcc;
+        color: #000;
+        font-size: 16px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 30px;
+      }
+
+      button:hover {
+        background-color: #00bfa6;
       }
     </style>
   </head>
 
   <body>
     <h1>Kia ora Taiao! (Hello World!)</h1>
+    <h1>Tālofa, lalolagi!</h1>
     <h1>Welcome to my Website</h1>
     <p>
       Here’s where I post my dev journey, projects, and maybe the occasional
@@ -25,5 +44,10 @@
     />
     <p>This is the beginning of my website home page.</p>
     <p>It will eventually contain a list of links to all my blogs.</p>
+
+    <!-- 🎮 Game Button -->
+    <button onclick="window.location.href='game.html'">
+      Click here to play a mini-game
+    </button>
   </body>
 </html>
