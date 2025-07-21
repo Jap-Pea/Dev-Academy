@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My To-Do List</title>
+    <style>
+      body {
+        background-color: #121212;
+        color: white;
+        font-family: sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      #todoInput {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        width: 250px;
+      }
+
+      #addBtn {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+        background-color: #00ffcc;
+        color: black;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 30px;
+      }
+
+      li {
+        background: #1e1e1e;
+        margin: 10px auto;
+        padding: 10px;
+        width: 300px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      li.completed {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+
+      .deleteBtn {
+        background-color: red;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        padding: 5px 8px;
+        cursor: pointer;
+      }
+
+      .checkbox {
+        margin-right: 10px;
+      }
+
+      a {
+        display: block;
+        color: #00ffcc;
+        margin-top: 40px;
+        font-size: 18px;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My To-Do List</h1>
+    <input id="todoInput" type="text" placeholder="Add a new task..." />
+    <button id="addBtn">Add</button>
+
+    <ul id="todoList"></ul>
+
+    <a href="index.html">⬅ Back to Home</a>
+
+    <script>
+      const input = document.getElementById('todoInput')
+      const addBtn = document.getElementById('addBtn')
+      const list = document.getElementById('todoList')
+
+      let todos = JSON.parse(localStorage.getItem('myTodos')) || []
+
+      function saveTodos() {
+        localStorage.setItem('myTodos', JSON.stringify(todos))
+      }
+
+      function renderTodos() {
+        list.innerHTML = ''
+        todos.forEach((todo, index) => {
+          const li = document.createElement('li')
+          if (todo.completed) li.classList.add('completed')
+
+          const checkbox = document.createElement('input')
+          checkbox.type = 'checkbox'
+          checkbox.className = 'checkbox'
+          checkbox.checked = todo.completed
+          checkbox.onclick = () => {
+            todos[index].completed = !todos[index].completed
+            saveTodos()
+            renderTodos()
+          }
+
+          const span = document.createElement('span')
+          span.textContent = todo.text
+
+          const delBtn = document.createElement('button')
+          delBtn.textContent = '✖'
+          delBtn.className = 'deleteBtn'
+          delBtn.onclick = () => {
+            todos.splice(index, 1)
+            saveTodos()
+            renderTodos()
+          }
+
+          li.appendChild(checkbox)
+          li.appendChild(span)
+          li.appendChild(delBtn)
+          list.appendChild(li)
+        })
+      }
+
+      addBtn.onclick = () => {
+        if (input.value.trim() !== '') {
+          todos.push({ text: input.value, completed: false })
+          input.value = ''
+          saveTodos()
+          renderTodos()
+        }
+      }
+
+      renderTodos()
+    </script>
+  </body>
+</html>

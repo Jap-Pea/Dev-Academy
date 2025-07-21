@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My blog</title>
+    <title>Jap-Pea Page</title>
     <style>
       body {
         background: linear-gradient(135deg, #0f0f0f, #1a1a1a, #005f73);
@@ -59,18 +59,42 @@
         text-decoration: underline;
       }
 
-      /* Hide the video container initially */
-      #videoContainer {
-        max-width: 560px;
-        margin: 20px auto;
+      #jumpScare {
         display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #jumpScare video {
+        max-width: 90vw;
+        max-height: 90vh;
+      }
+
+      #closeVideoBtn {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background-color: red;
+        color: white;
+        font-size: 18px;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
       }
     </style>
   </head>
 
   <body>
-    <h1>Kia ora Taiao!</h1>
-    <h1>Tālofa, lalolagi!</h1>
+    <h2>Kia ora Taiao!</h2>
+    <h2>Tālofa, lalolagi!</h2>
     <h1>Hello World!</h1>
     <h1>Welcome to my Website</h1>
     <p>
@@ -83,7 +107,7 @@
       width="300"
     />
     <p>This is the beginning of my website home page.</p>
-    <p>It will eventually contain a list of links to all my blogs.</p>
+    <p>It will eventually contain a list of links to my work.</p>
 
     <button onclick="window.location.href='game.html'">
       Click here to play a mini-game
@@ -97,31 +121,40 @@
         >
       </li>
       <li>
-        <!-- Button to show Rick Roll video -->
+        <a href="todo.html">My To-Do List</a>
+      </li>
+      <li>
         <button id="showVideoBtn">Click here for a surprise 😉</button>
       </li>
     </ul>
 
-    <!-- Hidden video container -->
-    <div id="videoContainer">
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
-        title="Rick Astley - Never Gonna Give You Up"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+    <div id="jumpScare">
+      <video id="rickrollVid" src="rickroll.mp4" autoplay controls></video>
+      <button id="closeVideoBtn">✖ Close</button>
     </div>
 
     <script>
       const btn = document.getElementById('showVideoBtn')
-      const container = document.getElementById('videoContainer')
+      const scare = document.getElementById('jumpScare')
+      const vid = document.getElementById('rickrollVid')
+      const closeBtn = document.getElementById('closeVideoBtn')
 
       btn.addEventListener('click', () => {
-        container.style.display = 'block'
+        scare.style.display = 'flex'
+        vid.play()
+      })
+
+      vid.addEventListener('ended', () => {
+        scare.style.display = 'none'
         btn.style.display = 'none'
+        vid.pause()
+        vid.currentTime = 0
+      })
+
+      closeBtn.addEventListener('click', () => {
+        scare.style.display = 'none'
+        vid.pause()
+        vid.currentTime = 0
       })
     </script>
   </body>
