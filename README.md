@@ -11,8 +11,6 @@ This site showcases my learning journey through Dev Academy. It includes:
 
 📝 My Blog
 
-✅ My To-Do List
-
 🎬 A fun surprise video button
 
 🚀 Getting Started

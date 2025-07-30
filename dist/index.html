@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My blog</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: url('/dev-academy-logo.png') left top no-repeat,
+          linear-gradient(135deg, #000000, #434343);
+        color: #f0f0f0;
+        font-family: 'Segoe UI', sans-serif;
+        padding: 100px;
+      }
+
+      h1 {
+        font-size: 3em;
+        margin-bottom: 1em;
+        text-align: center;
+      }
+
+      .intro {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .section-heading {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+        text-align: left;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-left: 0;
+      }
+
+      li {
+        margin: 15px 0;
+        text-align: left;
+      }
+
+      a,
+      button {
+        text-decoration: none;
+        color: #fff;
+        background: #444444;
+        border: none;
+        padding: 5px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background 0.3s ease;
+      }
+
+      a:hover,
+      button:hover {
+        background: #8b8b8b;
+      }
+
+      #videoContainer {
+        margin-top: 20px;
+        display: none;
+      }
+
+      iframe,
+      video {
+        max-width: 100%;
+      }
+
+      #closeBtn {
+        margin-top: 10px;
+        background: #e24a4a;
+      }
+
+      #closeBtn:hover {
+        background: #c73a3a;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Kia ora Taiao! (Hello World!)</h1>
+
+    <div class="intro">
+      <p>
+        My name is Justin Pringle, and I am a student at
+        <a href="https://www.devacademy.co.nz" target="_blank" rel="noopener"
+          >Dev Academy Aotearoa</a
+        >
+      </p>
+      <p>This is the beginning of my website home page.</p>
+      <p>It will eventually contain a list of links to all my blogs.</p>
+    </div>
+
+    <h2 class="section-heading">Check out my work:</h2>
+    <ul>
+      <li>
+        <a href="https://github.com/Jap-Pea" target="_blank" rel="noopener">
+          My GitHub Profile</a
+        >
+      </li>
+      <li>
+        <a href="/blog/blog.html">My Blog</a> /
+        <a href="/blog/te-houtaewa-template.html">Te-Houtaewa</a>
+      </li>
+      <li>
+        <a href="/StrengthsProfile-Justin-Pringle.pdf">
+          My Strengths Evaluation</a
+        >
+      </li>
+      <li>
+        <button id="showVideoBtn">Click here for a surprise 😉</button>
+      </li>
+    </ul>
+
+    <div id="videoContainer">
+      <h2>Surprise Video</h2>
+      <video
+        id="myVideo"
+        width="560"
+        height="315"
+        autoplay
+        muted
+        playsinline
+        controls
+      >
+        <source src="/rickroll.mp4" type="video/mp4" />
+      </video>
+      <br />
+      <button id="closeBtn">Close</button>
+    </div>
+
+    <script>
+      const showVideoBtn = document.getElementById('showVideoBtn')
+      const videoContainer = document.getElementById('videoContainer')
+      const myVideo = document.getElementById('myVideo')
+      const closeBtn = document.getElementById('closeBtn')
+
+      showVideoBtn.addEventListener('click', function (e) {
+        e.preventDefault()
+        videoContainer.style.display = 'block'
+        myVideo.currentTime = 0
+        myVideo.muted = false
+        myVideo.play().catch((err) => {
+          console.warn('Autoplay with sound might be blocked:', err)
+        })
+      })
+
+      closeBtn.addEventListener('click', function () {
+        myVideo.pause()
+        videoContainer.style.display = 'none'
+      })
+    </script>
+  </body>
+</html>
