@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: './', // Use relative paths for GitHub Pages or project pages
+  base: '/Jap-Pea.github.io/', // 👈 This MUST match your GitHub repo name!
 })
