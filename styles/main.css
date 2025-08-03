@@ -1,1 +1,96 @@
+body {
+  margin: 0;
+  height: 100%;
+  background: url('../dev-academy-logo.png') left top no-repeat,
+    linear-gradient(135deg, #000000, #434343);
+  color: #f0f0f0;
+  font-family: Verdana, sans-serif;
+  padding: 100px;
+}
 
+h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.intro {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+li {
+  margin: 15px 0;
+  text-align: left;
+}
+
+a,
+button {
+  text-decoration: none;
+  color: #fff;
+  background: #444444;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease;
+}
+
+a:hover,
+button:hover {
+  background: #8b8b8b;
+}
+
+#videoContainer {
+  margin-top: 20px;
+  display: none;
+}
+
+iframe,
+video {
+  max-width: 100%;
+}
+
+#closeBtn {
+  margin-top: 10px;
+  background: #e24a4a;
+}
+
+#closeBtn:hover {
+  background: #c73a3a;
+}
+
+footer {
+  background-color: #111;
+  color: #888;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+#logo-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 180px;
+  display: block;
+  opacity: 0;
+  z-index: 1;
+}
