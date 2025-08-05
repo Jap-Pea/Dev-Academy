@@ -1,55 +1,76 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jap-Pea's blog</title>
-    <link href="styles/main.css" rel="stylesheet" type="text/css" />
+    <title>Jap-Pea | Blog</title>
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
-
   <body>
-    <a
-      href="https://devacademy.co.nz"
-      target="_blank"
-      id="logo-link"
-      title="Visit Dev Academy Aotearoa"
-    ></a>
+    <header class="top-nav">
+      <a href="https://devacademy.co.nz" target="_blank" class="logo-link">
+        <img
+          src="assets/dev-academy-logo.png"
+          alt="Dev Academy Logo"
+          class="dev-academy-logo"
+        />
+      </a>
 
-    <h1>Kia ora Taiao! (Hello World!)</h1>
-
-    <div class="intro">
-      <p>
-        My name is Justin Pringle, and I am a student at
-        <a href="https://www.devacademy.co.nz" target="_blank" rel="noopener"
-          >Dev Academy Aotearoa</a
+      <nav>
+        <a href="https://github.com/Jap-Pea" target="_blank">GitHub</a>
+        <a href="assets/StrengthsProfile-Justin-Pringle.pdf" target="_blank"
+          >Strengths</a
         >
-      </p>
-      <p>This is the beginning of my website home page.</p>
-      <p>It will eventually contain a list of links to all my blogs.</p>
-    </div>
-
-    <h2 class="section-heading">Check out my work:</h2>
-    <ul>
-      <li>
-        <a href="https://github.com/Jap-Pea" target="_blank" rel="noopener">
-          My GitHub Profile</a
-        >
-      </li>
-      <li>
-        <a href="blog/blog.html">My Blog</a> /
+        <a href="blog/blog.html">Identity | Values</a>
         <a href="blog/te-houtaewa-template.html">Te-Houtaewa</a>
-      </li>
-      <li>
-        <a href="StrengthsProfile-Justin-Pringle.pdf">
-          My Strengths Evaluation</a
-        >
-      </li>
-      <li>
-        <button id="showVideoBtn">Click here for a surprise 😉</button>
-      </li>
-    </ul>
+      </nav>
+    </header>
 
-    <div id="videoContainer">
+    <section class="hero">
+      <h1>My Dev Blog</h1>
+      <p>
+        Kia ora, I'm Justin. I build games and software while studying at
+        <a href="https://devacademy.co.nz" target="_blank"
+          >Dev Academy Aotearoa</a
+        >.
+      </p>
+      <p>This is my blog and project showcase space. Welcome aboard.</p>
+    </section>
+
+    <main class="card-grid">
+      <article class="card card-bg-github">
+        <h3>My GitHub</h3>
+        <p>Work in progress...</p>
+        <a href="https://github.com/Jap-Pea" target="_blank">Visit Profile</a>
+      </article>
+
+      <article class="card">
+        <h3>Strengths Profile</h3>
+        <p>Strengths Evaluation PDF</p>
+        <a href="assets/StrengthsProfile-Justin-Pringle.pdf" target="_blank"
+          >Open PDF</a
+        >
+      </article>
+
+      <article class="card">
+        <h3>Identity & Values</h3>
+        <p>Reflections and personal growth blog</p>
+        <a href="blog/blog.html">Read More</a>
+      </article>
+
+      <article class="card card-bg-te-houtaewa">
+        <h3>Te-Houtaewa</h3>
+        <p>A short story about a Māori legend</p>
+        <a href="blog/te-houtaewa-template.html">Check it Out</a>
+      </article>
+
+      <article class="card">
+        <h3>Secret...</h3>
+        <button id="showVideoBtn">Click for a surprise 😉</button>
+      </article>
+    </main>
+
+    <section id="videoContainer" hidden>
       <h2>Surprise Video</h2>
       <video
         id="myVideo"
@@ -60,11 +81,15 @@
         playsinline
         controls
       >
-        <source src="rickroll.mp4" type="video/mp4" />
+        <source src="/assets/rickroll.mp4" type="video/mp4" />
       </video>
       <br />
       <button id="closeBtn">Close</button>
-    </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Jap-Pea. All rights reserved.</p>
+    </footer>
 
     <script>
       const showVideoBtn = document.getElementById('showVideoBtn')
@@ -74,21 +99,16 @@
 
       showVideoBtn.addEventListener('click', function (e) {
         e.preventDefault()
-        videoContainer.style.display = 'block'
+        videoContainer.hidden = false
         myVideo.currentTime = 0
         myVideo.muted = false
-        myVideo.play().catch((err) => {
-          console.warn('Autoplay with sound might be blocked:', err)
-        })
+        myVideo.play().catch((err) => console.warn('Autoplay issue:', err))
       })
 
       closeBtn.addEventListener('click', function () {
         myVideo.pause()
-        videoContainer.style.display = 'none'
+        videoContainer.hidden = true
       })
     </script>
-    <footer>
-      <p>&copy; 2025 Jap-Pea. All rights reserved.</p>
-    </footer>
   </body>
 </html>
