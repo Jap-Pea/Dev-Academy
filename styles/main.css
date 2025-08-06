@@ -238,7 +238,7 @@ th {
 
 /* Specific backgrounds */
 .card-bg-github::after {
-  background-image: url('../assets/github.png');
+  background-image: url('../assets/Github.png');
 }
 
 .card-bg-te-houtaewa::after {
@@ -250,7 +250,7 @@ th {
 }
 
 .card-bg-identity::after {
-  background-image: url('../assets/identity.png');
+  background-image: url('../assets/Identity.png');
 }
 
 .card-bg-css-position::after {
