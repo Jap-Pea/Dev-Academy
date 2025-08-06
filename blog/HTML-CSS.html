@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Positioning in CSS</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <div class="blog-post">
+      <a href="../index.html">Back to Home</a>
+      <h1>Positioning in CSS — Relative, Absolute, and Fixed Explained</h1>
+
+      <p>
+        When I first started learning how websites are built, positioning
+        elements on the screen felt a bit like trying to park a car in the dark.
+        I'd write some code, reload the page… and boom! My button is halfway
+        across the screen and my image's on a milk run.
+      </p>
+
+      <p>
+        CSS gives us some powerful tools to
+        <strong>control exactly where things sit</strong> on the page. You just
+        need to understand how they work.
+      </p>
+
+      <p>
+        Let me walk you through three of the most common types of positioning in
+        CSS:
+      </p>
+      <ul>
+        <li><code>relative</code></li>
+        <li><code>absolute</code></li>
+        <li><code>fixed</code></li>
+      </ul>
+
+      <h2><code>relative</code> - “You moved me, but that's still my spot”</h2>
+      <p>
+        <strong>Relative</strong> positioning is like saying:<br /><em
+          >"Hey, I'm normally here… but I'll shift over a bit. Just know I'm
+          still technically in the original spot."</em
+        >
+      </p>
+
+      <p>
+        It <strong>starts from the element's original position</strong> and
+        nudges it using <code>top</code>, <code>left</code>, <code>right</code>,
+        or <code>bottom</code>.
+      </p>
+
+      <pre><code>.box {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}</code></pre>
+
+      <p>
+        That moves the box down 20px and to the right 30px — but it still leaves
+        a “ghost” behind where it started.
+      </p>
+
+      <h2>
+        <code>absolute</code> - “Tell me who to stick to, and I'll go there”
+      </h2>
+      <p>
+        <strong>Absolute</strong> positioning is like saying:
+        <em
+          >“Forget where I came from — I go wherever my closest positioned
+          parent tells me… and if no one claims me, I stick to the page
+          itself.”</em
+        >
+      </p>
+      <p>
+        When something's positioned absolutely, it's taken out of the normal
+        flow, like it vanished from the room. Everything else acts like it's not
+        even there, and it finds the closest 'boss' with instructions and
+        follows them. No boss? It reports to the whole page. If no positioned
+        parent is found, it sticks to the page itself
+        <em
+          >(like the <code>&lt;body&gt;</code> or <code>&lt;html&gt;</code>)</em
+        >.
+      </p>
+
+      <pre><code>.container {
+  position: relative;
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  right: 0;
+}</code></pre>
+
+      <p>
+        That will put the box to the top-right of its container (or the whole
+        page if no parent is positioned).
+      </p>
+
+      <h2><code>fixed</code> - “I'll stay here no matter where you scroll”</h2>
+      <p>
+        <strong>Fixed</strong> positioning is like saying:
+        <em
+          >"I'm glued to this spot on the screen, no matter how much you
+          scroll."</em
+        >
+      </p>
+      <p>
+        It sticks to the screen. Even if you scroll, it stays locked in place.
+      </p>
+
+      <pre><code>.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}</code></pre>
+
+      <p>
+        This pins the navbar to the top of the screen, like a sticky header or a
+        floating chat window.
+      </p>
+
+      <h2>Quick Recap</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Position Type</th>
+            <th>Keeps it's Place?</th>
+            <th>Moves From</th>
+            <th>Sticks To</th>
+            <th>Scrolls with Page?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>relative</code></td>
+            <td>✅ Yes</td>
+            <td>Its normal spot</td>
+            <td>Itself</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td><code>absolute</code></td>
+            <td>❌ No</td>
+            <td>Closest positioned parent</td>
+            <td>That parent</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td><code>fixed</code></td>
+            <td>❌ No</td>
+            <td>Viewport</td>
+            <td>The screen</td>
+            <td>❌ No</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Try it Yourself</h2>
+      <p>Here's a small snippet you can copy into your own project:</p>
+
+      <pre><code>&lt;div class="container"&gt;
+  &lt;div class="box"&gt;I'm positioned!&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+      <p>
+        Then play with different <code>position</code> types in CSS and see what
+        happens!
+      </p>
+
+      <h2>Final Thoughts</h2>
+      <p>
+        CSS positioning used to feel like a fight. Now it's more like giving
+        directions — once you know the rules, things go where you want, no
+        stress.
+      </p>
+
+      <p>Hope this has helped!</p>
+
+      <a href="../index.html">Back to Home</a>
+    </div>
+    <div class="footer">
+      <p>&copy; 2025 Jap-Pea. All rights reserved.</p>
+    </div>
+  </body>
+</html>

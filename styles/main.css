@@ -31,9 +31,7 @@ body * {
   z-index: 1;
   box-sizing: border-box;
 }
-.p {
-  text-align: center;
-}
+
 /* Buttons and links */
 a,
 button {
@@ -57,7 +55,7 @@ button:hover {
 /* Video modal */
 #videoContainer {
   margin-top: 20px;
-  display: none;
+  display: hidden;
   text-align: center;
 }
 
@@ -97,16 +95,13 @@ footer {
 .dev-academy-logo:hover {
   opacity: 1;
 }
-.logo-link {
+
+.logo-and-admin {
   display: flex;
   align-items: center;
-  padding: 0;
-  margin: 0;
-  background: none;
-  border: none;
-  box-shadow: none;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-
 /* Top nav */
 .top-nav {
   display: flex;
@@ -157,6 +152,55 @@ footer {
   max-width: 1200px;
   margin: auto;
 }
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 10px;
+  line-height: 1.7;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3 {
+  color: #fff;
+}
+
+.blog-post code {
+  background: #222;
+  color: #0f0;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.blog-post pre {
+  background: #111;
+  color: #0f0;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  border: 1px solid #555;
+  padding: 10px;
+  text-align: center;
+  background: #222;
+}
+
+th {
+  background: #333;
+}
+
 .card {
   position: relative;
   background-size: cover;
@@ -166,10 +210,11 @@ footer {
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
+/* Dark overlay */
 .card::before {
   content: '';
   position: absolute;
@@ -178,35 +223,52 @@ footer {
   z-index: 0;
 }
 
+/* Background image layer */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: 50%;
+  background-position: center right;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Specific backgrounds */
+.card-bg-github::after {
+  background-image: url('../assets/github.png');
+}
+
+.card-bg-te-houtaewa::after {
+  background-image: url('../assets/maori.jpg');
+}
+
+.card-bg-strengths::after {
+  background-image: url('../assets/strengths.png');
+}
+
+.card-bg-identity::after {
+  background-image: url('../assets/identity.png');
+}
+
+.card-bg-css-position::after {
+  background-image: url('../assets/css-position.png');
+}
+
+/* Content stays on top */
 .card * {
   position: relative;
   z-index: 1;
 }
-.card-bg-github::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../assets/github.png');
-  background-size: 50%;
-  background-position: right;
-  background-repeat: no-repeat;
-  z-index: 0;
-  opacity: 0.6;
-}
-.card-bg-te-houtaewa::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../assets/maori.jpg');
-  background-size: 50%;
-  background-position: center right;
-  background-repeat: no-repeat;
-  z-index: 0;
-  opacity: 0.6;
-}
+
+/* Hover effect */
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+
 .card h3 {
   margin-top: 0;
 }
@@ -291,4 +353,131 @@ footer {
     grid-template-columns: 1fr;
     padding: 30px 10px;
   }
+}
+
+.videocard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+/* Note Section */
+.note-section {
+  margin: 40px auto;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+  text-align: center;
+}
+
+.note-section h2 {
+  margin-bottom: 20px;
+}
+
+#noteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#noteForm label {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ccc;
+}
+
+#noteForm input,
+#noteForm button {
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+}
+
+#noteList {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+#noteList li {
+  padding: 10px;
+  background: #222;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  color: #f0f0f0;
+}
+
+.delete-note {
+  background: transparent;
+  color: #f66;
+  cursor: pointer;
+  border: none;
+  font-size: 1.2em;
+}
+
+#adminToggleWrapper {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .note-section {
+    padding: 15px;
+  }
+
+  #noteForm input,
+  #noteForm button {
+    font-size: 0.95em;
+  }
+
+  #noteList li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+.admin-login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+.admin-login input {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+}
+.admin-login button {
+  padding: 4px 10px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+#matrixCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 999;
+  pointer-events: none;
 }

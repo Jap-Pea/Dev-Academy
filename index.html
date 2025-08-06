@@ -7,71 +7,90 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <header class="top-nav">
-      <a href="https://devacademy.co.nz" target="_blank" class="logo-link">
-        <img
-          src="assets/dev-academy-logo.png"
-          alt="Dev Academy Logo"
-          class="dev-academy-logo"
-        />
-      </a>
+    <!-- Top navigation bar -->
+    <div class="top-nav">
+      <div class="logo-and-admin">
+        <a href="https://devacademy.co.nz" target="_blank" class="logo-link">
+          <img
+            src="assets/dev-academy-logo.png"
+            alt="Dev Academy Logo"
+            class="dev-academy-logo"
+          />
+        </a>
 
-      <nav>
+        <!-- Admin login box -->
+        <div class="admin-login">
+          <label for="adminPassword">Admin:</label>
+          <input
+            type="password"
+            id="adminPassword"
+            placeholder="Enter password"
+          />
+          <button id="adminLoginBtn">Login</button>
+        </div>
+      </div>
+
+      <div class="nav-links">
         <a href="https://github.com/Jap-Pea" target="_blank">GitHub</a>
         <a href="assets/StrengthsProfile-Justin-Pringle.pdf" target="_blank"
           >Strengths</a
         >
         <a href="blog/blog.html">Identity | Values</a>
         <a href="blog/te-houtaewa-template.html">Te-Houtaewa</a>
-      </nav>
-    </header>
+        <a href="blog/HTML-CSS.html">CSS Positioning</a>
+      </div>
+    </div>
 
-    <section class="hero">
+    <!-- Hero section -->
+    <div class="hero">
       <h1>My Dev Blog</h1>
+      <p>Kia Ora, I'm Justin</p>
       <p>
-        Kia ora, I'm Justin. I build games and software while studying at
+        This is my Blog, where I'll be adding everything I've learnt while
+        studying at
         <a href="https://devacademy.co.nz" target="_blank"
           >Dev Academy Aotearoa</a
-        >.
+        >
       </p>
-      <p>This is my blog and project showcase space. Welcome aboard.</p>
-    </section>
+      <p>Welcome</p>
+    </div>
 
-    <main class="card-grid">
-      <article class="card card-bg-github">
+    <!-- Cards Grid -->
+    <div class="card-grid">
+      <div class="card card-bg-github">
         <h3>My GitHub</h3>
         <p>Work in progress...</p>
         <a href="https://github.com/Jap-Pea" target="_blank">Visit Profile</a>
-      </article>
+      </div>
 
-      <article class="card">
+      <div class="card card-bg-strengths">
         <h3>Strengths Profile</h3>
         <p>Strengths Evaluation PDF</p>
         <a href="assets/StrengthsProfile-Justin-Pringle.pdf" target="_blank"
           >Open PDF</a
         >
-      </article>
+      </div>
 
-      <article class="card">
+      <div class="card card-bg-identity">
         <h3>Identity & Values</h3>
         <p>Reflections and personal growth blog</p>
         <a href="blog/blog.html">Read More</a>
-      </article>
+      </div>
 
-      <article class="card card-bg-te-houtaewa">
+      <div class="card card-bg-te-houtaewa">
         <h3>Te-Houtaewa</h3>
         <p>A short story about a Māori legend</p>
         <a href="blog/te-houtaewa-template.html">Check it Out</a>
-      </article>
+      </div>
+      <div class="card card-bg-css-position">
+        <h3>CSS Positioning</h3>
+        <p>Relative vs Absolute vs Fixed</p>
+        <a href="blog/HTML-CSS.html">Learn More</a>
+      </div>
+    </div>
 
-      <article class="card">
-        <h3>Secret...</h3>
-        <button id="showVideoBtn">Click for a surprise 😉</button>
-      </article>
-    </main>
-
-    <section id="videoContainer" hidden>
-      <h2>Surprise Video</h2>
+    <!-- Video Container -->
+    <div id="videoContainer" hidden>
       <video
         id="myVideo"
         width="560"
@@ -85,30 +104,41 @@
       </video>
       <br />
       <button id="closeBtn">Close</button>
+    </div>
+    <div class="videocard">
+      <button id="showVideoBtn">Click for a surprise 😉</button>
+    </div>
+
+    <!-- Note Section -->
+    <section class="note-section">
+      <h2>Wanna Leave a Note?</h2>
+      <form id="noteForm">
+        <input type="text" id="nameInput" placeholder="Your Name" required />
+        <input type="text" id="noteInput" placeholder="Your Note" required />
+
+        <label>
+          <input type="checkbox" id="publicCheckbox" />
+          Make this note public
+        </label>
+
+        <button type="submit">Add Note</button>
+      </form>
+
+      <div id="adminToggleWrapper" style="display: none; margin-top: 15px">
+        <label>
+          <input type="checkbox" id="adminToggle" />
+          Show all notes (admin view)
+        </label>
+      </div>
+
+      <ul id="noteList"></ul>
     </section>
 
-    <footer>
+    <script src="scripts/main.js"></script>
+
+    <!-- Footer -->
+    <div class="footer">
       <p>&copy; 2025 Jap-Pea. All rights reserved.</p>
-    </footer>
-
-    <script>
-      const showVideoBtn = document.getElementById('showVideoBtn')
-      const videoContainer = document.getElementById('videoContainer')
-      const myVideo = document.getElementById('myVideo')
-      const closeBtn = document.getElementById('closeBtn')
-
-      showVideoBtn.addEventListener('click', function (e) {
-        e.preventDefault()
-        videoContainer.hidden = false
-        myVideo.currentTime = 0
-        myVideo.muted = false
-        myVideo.play().catch((err) => console.warn('Autoplay issue:', err))
-      })
-
-      closeBtn.addEventListener('click', function () {
-        myVideo.pause()
-        videoContainer.hidden = true
-      })
-    </script>
+    </div>
   </body>
 </html>
