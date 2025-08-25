@@ -55,7 +55,7 @@ button:hover {
 /* Video modal */
 #videoContainer {
   margin-top: 20px;
-  display: hidden;
+  display: none;
   text-align: center;
 }
 
@@ -257,6 +257,18 @@ th {
   background-image: url('../assets/css-position.png');
 }
 
+.card-bg-learning-plan::after {
+  background-image: url('../assets/learning-plan.jpg');
+}
+
+.card-bg-emotional-intelligence::after {
+  background-image: url('../assets/emotionalintell.jpeg');
+}
+
+.card-bg-dom::after {
+  background-image: url('../assets/thedom.png');
+}
+
 /* Content stays on top */
 .card * {
   position: relative;
@@ -362,95 +374,6 @@ th {
   margin: 20px auto;
 }
 
-/* Note Section */
-.note-section {
-  margin: 40px auto;
-  max-width: 300px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000;
-  text-align: center;
-}
-
-.note-section h2 {
-  margin-bottom: 20px;
-}
-
-#noteForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-#noteForm label {
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #ccc;
-}
-
-#noteForm input,
-#noteForm button {
-  padding: 10px;
-  font-size: 1em;
-  border-radius: 6px;
-  border: none;
-}
-
-#noteList {
-  margin-top: 20px;
-  list-style: none;
-  padding: 0;
-}
-
-#noteList li {
-  padding: 10px;
-  background: #222;
-  border-radius: 6px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  justify-content: space-between;
-  color: #f0f0f0;
-}
-
-.delete-note {
-  background: transparent;
-  color: #f66;
-  cursor: pointer;
-  border: none;
-  font-size: 1.2em;
-}
-
-#adminToggleWrapper {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  color: #bbb;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .note-section {
-    padding: 15px;
-  }
-
-  #noteForm input,
-  #noteForm button {
-    font-size: 0.95em;
-  }
-
-  #noteList li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-}
-
 .admin-login {
   display: flex;
   align-items: center;
@@ -480,4 +403,34 @@ th {
   display: none;
   z-index: 999;
   pointer-events: none;
+}
+/* ===== Demo blocks for blog/javascript-dom.html ===== */
+.demo-block {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin: 16px 0 20px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+}
+.demo-block > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Outputs beside buttons */
+#rosterOut,
+#fighterOut,
+#comboOut {
+  margin-left: 8px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Blog images (e.g., scene-tree.png) */
+.blog-post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 16px 0;
 }

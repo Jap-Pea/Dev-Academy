@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript + DOM — Game Dev & MMA</title>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <!-- Hero -->
+    <div class="hero">
+      <h1>JavaScript + the DOM</h1>
+      <a href="../index.html">Back to Home</a>
+      <p>
+        A non-technical guide using level design, scene trees, fight plans, and
+        drilling rounds.
+      </p>
+    </div>
+
+    <!-- Blog content -->
+    <main class="blog-post">
+      <h2>HTML, CSS, JavaScript & the DOM</h2>
+      <div>
+        <p>
+          Think of a web page like building a level in a game engine:
+          <strong>HTML</strong> is the level geometry/meshes (walls, floors,
+          props), <strong>CSS</strong> is the materials, shaders and lighting
+          (how it looks), <strong>JavaScript</strong> is your Blueprints/scripts
+          (what makes things react), and the <strong>DOM</strong> is the scene
+          hierarchy — the live tree where every object sits so your scripts can
+          find and change them.
+        </p>
+
+        <h2>What is the DOM (in game-dev terms)?</h2>
+        <p>
+          The <em>Document Object Model</em> is like the outliner/scene tree in
+          Unreal or Unity — a tree of all actors on the level. Each heading,
+          button or image is a node. JavaScript uses selectors (like searching
+          the outliner) to grab a node and tweak it.
+        </p>
+        <img src="../assets/domtree.jpg" alt="Scene tree diagram" />
+      </div>
+
+      <h3>Mini-demo: change a heading</h3>
+      <div class="demo-block">
+        <h3 id="sceneTitle">Loading screen: Press Start</h3>
+        <button id="toggleTitleBtn">Toggle Title</button>
+        <pre><code>// Select a node from the DOM (scene tree)
+const title = document.querySelector('#sceneTitle')
+// Update its text at runtime
+title.textContent = "Game Started — Let's Go!"</code></pre>
+      </div>
+
+      <hr />
+
+      <h2>Control Flow = The Training Plan</h2>
+      <p>
+        Control flow is just the order your coach gives instructions. You follow
+        them step by step. Sometimes you take a different path depending on what
+        happens (like
+        <em>“if you're tired, take a break”</em>).
+      </p>
+
+      <h3>Example: MMA Training Flow</h3>
+      <ul>
+        <li>Warm up.</li>
+        <li>
+          If gloves are on → start striking drills. Otherwise → put on gloves
+          first.
+        </li>
+        <li>Do combos until time is up.</li>
+        <li>Cool down and stretch.</li>
+      </ul>
+      <p>That's control flow: a set of decisions and steps in order.</p>
+
+      <h3>Loops = Repeated Drills</h3>
+      <p>Loops are the reps or rounds you do over and over.</p>
+      <p>Example: “Throw 10 jabs” = a loop that repeats 10 times.</p>
+
+      <div class="demo-block">
+        <pre><code>let glovesOn = false;
+let rounds = 3;
+
+// Step 1: Warm up
+console.log("Jog around the gym/shadowbox");
+
+// Step 2: If/else (decision making)
+if (!glovesOn) {
+  console.log("Put on gloves");
+  glovesOn = true;
+}
+console.log("Start striking drills");
+
+// Step 3: Loop (repeat combos for 3 rounds)
+for (let round = 1; round <= rounds; round++) {
+  console.log("Round " + round + ": Throw combo (jab → cross → hook)");
+}
+
+// Step 4: Finish up
+console.log("Cool down and stretch");</code></pre>
+      </div>
+
+      <h3>Breaking it Down</h3>
+      <ul>
+        <li>
+          <strong>Control flow:</strong> warm up → gloves check → drills →
+          cooldown. <em>If/else</em> decides what happens (gloves on or not).
+        </li>
+        <li>
+          <strong>Loop:</strong> the <code>for</code> loop repeats the combo
+          each round. Instead of writing “Throw combo” three times, the loop
+          handles it.
+        </li>
+      </ul>
+
+      <hr />
+
+      <h2>Arrays vs Objects</h2>
+
+      <h3>Arrays = Ordered Lists</h3>
+      <p>Think of an array like a line of fighters waiting to spar.</p>
+      <p>
+        Each fighter has a number (their position in line), starting at 0. You
+        use the number (called an <em>index</em>) to grab the data.
+      </p>
+
+      <pre><code>let fighters = ["Adesanya", "Hooker", "Volkanovski"];
+
+console.log(fighters[0]); // Adesanya (first in line)
+console.log(fighters[1]); // Hooker
+console.log(fighters[2]); // Volkanovski
+</code></pre>
+
+      <p>
+        How you access data: <code>array[index]</code> (always a number). Order
+        matters.
+      </p>
+
+      <h3>Objects = Named Lockers</h3>
+      <p>
+        An object is more like a locker room where every locker has a label (a
+        key).
+      </p>
+      <p>Instead of remembering “Locker #2,” you just say “Hooker's locker.”</p>
+
+      <pre><code>let fighterStats = {
+  name: "Hooker",
+  style: "Kickboxing, Brazilian Jui Jitsu",
+  wins: 24,
+  losses: 12,
+  weight: "155lbs"
+};
+
+console.log(fighterStats.name);     // Hooker
+console.log(fighterStats["style"]); // Kickboxing, Brazilian Jui Jitsu
+</code></pre>
+
+      <p>
+        How you access data: <code>object.key</code> or
+        <code>object["key"]</code>. Keys are like names, not numbers. Order
+        doesn't matter — you just call the key.
+      </p>
+
+      <h3>Side-by-Side</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Array</th>
+            <th>Object</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Structure</td>
+            <td>Ordered list</td>
+            <td>Key-value pairs</td>
+          </tr>
+          <tr>
+            <td>Access by</td>
+            <td>Index (number)</td>
+            <td>Key (string)</td>
+          </tr>
+          <tr>
+            <td>Example</td>
+            <td><code>fighters[0] → "Adesanya"</code></td>
+            <td><code>fighterStats.style → "Kick-Boxing"</code></td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Lists, sequences, ordered data</td>
+            <td>Profiles, settings, grouped data</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="demo-block" style="margin-top: 10px">
+        <button id="showWeightBtn" style="margin-top: 8px">
+          Show fighter weight
+        </button>
+        <span id="fighterOut"></span>
+        <br />
+        <button id="showRosterBtn">Show 2nd fighter</button>
+        <span id="rosterOut"></span>
+      </div>
+
+      <h3>So..</h3>
+      <ul>
+        <li>
+          Use an <strong>array</strong> when you need an ordered list (like a
+          roster).
+        </li>
+
+        <li>
+          Use an <strong>object</strong> when you need to group related data
+          (like a fighter's stats).
+        </li>
+        <li>Sometimes you use both together (array of objects).</li>
+      </ul>
+
+      <hr />
+
+      <h2>Functions — MMA Analogy</h2>
+      <p>Think of a function like a fight combo.</p>
+      <p>In training, you practice: jab → cross → hook → low kick.</p>
+      <p>
+        Instead of saying all those moves each time, your coach just says:
+        <em>“Combo One!”</em> — you instantly know the steps and do them.
+      </p>
+      <p>
+        That's a function in JS: you give it a name (<code>comboOne</code>) and
+        when you “call” it, the fighter executes all the moves inside.
+      </p>
+
+      <div class="demo-block">
+        <button id="comboBtn">Reveal comboOne()</button>
+        <div id="comboOutput" style="margin-top: 10px"></div>
+
+        <!-- Hidden until button is clicked -->
+        <pre id="comboCode" hidden><code>function comboOne() {
+  return "jab → cross → hook → low kick"
+}</code></pre>
+      </div>
+
+      <h3>Why it Helps</h3>
+      <ul>
+        <li>
+          You don't have to write every strike in your code each time. Wrap it
+          up in a function and call it whenever you need. Like a shortcut.
+        </li>
+        <li>
+          If you want to change the combo (swap the hook for an uppercut), you
+          update it once, then every time you call (<code>comboOne</code>), the
+          new combo is used.
+        </li>
+        <li>
+          Functions help organize code into logical chunks. Each function does
+          one thing (like a specific combo). This makes your code easier to read
+          and maintain.
+        </li>
+      </ul>
+      <hr />
+
+      <h2>Conclusion</h2>
+      <p>
+        HTML is the skeleton, CSS dresses it up, JavaScript makes it functional
+        ⚡, and the DOM is the translator that lets JavaScript communicate with
+        HTML.
+      </p>
+    </main>
+    <a href="../index.html">Back to Home</a>
+
+    <footer>
+      <p>&copy; 2025 Jap-Pea. All rights reserved.</p>
+    </footer>
+    <script src="../scripts/js-dom.js"></script>
+  </body>
+</html>
