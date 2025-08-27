@@ -122,6 +122,30 @@ footer {
   text-decoration: none;
   font-weight: bold;
 }
+/* Sidebar navigation */
+.nav-links {
+  position: fixed; /* stick to the side of the viewport */
+  top: 200px; /* distance from top */
+  right: 20px; /* distance from right edge */
+  display: flex;
+  flex-direction: column; /* stack links vertically */
+  gap: 10px; /* spacing between links */
+  background: rgba(0, 0, 0, 0.4); /* optional: translucent bg */
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.nav-links a {
+  color: #fff; /* text color */
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
 
 /* Hero Section */
 .hero {
@@ -267,6 +291,14 @@ th {
 
 .card-bg-dom::after {
   background-image: url('../assets/thedom.png');
+}
+
+.card-bg-neuroplasticity::after {
+  background-image: url('../assets/neuro.png');
+}
+
+.card-bg-te-whare::after {
+  background-image: url('../assets/TeWhareTapaWhā.jpg');
 }
 
 /* Content stays on top */
