@@ -10,7 +10,12 @@
     <!-- Top navigation bar -->
     <div class="top-nav">
       <div class="logo-and-admin">
-        <a href="https://devacademy.co.nz" target="_blank" class="logo-link">
+        <a
+          href="https://devacademy.co.nz"
+          target="_blank"
+          rel="noopener"
+          class="logo-link"
+        >
           <img
             src="assets/dev-academy-logo.png"
             alt="Dev Academy Logo"
@@ -18,7 +23,6 @@
           />
         </a>
 
-        <!-- Admin login box -->
         <div class="admin-login">
           <label for="adminPassword">Admin:</label>
           <input
@@ -29,26 +33,38 @@
           <button id="adminLoginBtn">Login</button>
         </div>
       </div>
-    </div>  
 
-     
-    <div class="nav-links">
-        <p><strong>Quick Links</strong></p>
-        <li><a href="https://github.com/Jap-Pea" target="_blank">GitHub</a></li>
-        <li>
-          <a href="assets/StrengthsProfile-Justin-Pringle.pdf" target="_blank"
-            >Strengths</a
-          >
-        </li>
-        <li><a href="blog/identity-values.html">Identity | Values</a></li>
-        <li><a href="blog/te-houtaewa-template.html">Te-Houtaewa</a></li>
-        <li><a href="blog/HTML-CSS.html">CSS Positioning</a></li>
-        <li><a href="blog/learning-plan.html">Learning Plan</a></li>
-        <li><a href="blog/emotional-intelligence.html">EQ</a></li>
-        <li><a href="blog/javascript-dom.html">JS + DOM</a></li>
-        <li><a href="blog/neuroplasticity.html">Neuroplasticity</a></li>
-        <li><a href="blog/te-whare-tapa-wha.html">Te-Whare-Tapa-Wha</a></li>
-      </div>
+      <!-- Quick Links Hamburger -->
+      <button
+        id="menuToggle"
+        class="menu-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="siteLinks"
+      >
+        ☰ Quick Links
+      </button>
+
+      <!-- Nav links (toggled via JS) -->
+      <nav id="siteLinks" class="nav-links" aria-label="Quick links">
+        <a href="https://github.com/Jap-Pea" target="_blank" rel="noopener"
+          >GitHub</a
+        >
+        <a
+          href="assets/StrengthsProfile-Justin-Pringle.pdf"
+          target="_blank"
+          rel="noopener"
+          >Strengths</a
+        >
+        <a href="blog/identity-values.html">Identity | Values</a>
+        <a href="blog/te-houtaewa-template.html">Te-Houtaewa</a>
+        <a href="blog/HTML-CSS.html">CSS Positioning</a>
+        <a href="blog/learning-plan.html">Learning Plan</a>
+        <a href="blog/emotional-intelligence.html">EQ</a>
+        <a href="blog/javascript-dom.html">JS + DOM</a>
+        <a href="blog/neuroplasticity.html">Neuroplasticity</a>
+        <a href="blog/te-whare-tapa-wha.html">Te-Whare-Tapa-Wha</a>
+      </nav>
     </div>
 
     <!-- Hero section -->
@@ -58,7 +74,7 @@
       <p>
         This is my Blog, where I'll be adding everything I've learnt while
         studying at
-        <a href="https://devacademy.co.nz" target="_blank"
+        <a href="https://devacademy.co.nz" target="_blank" rel="noopener"
           >Dev Academy Aotearoa</a
         >
       </p>
@@ -70,19 +86,24 @@
       <div class="card card-bg-github">
         <h3>My GitHub</h3>
         <p>Work in progress...</p>
-        <a href="https://github.com/Jap-Pea" target="_blank">Visit Profile</a>
+        <a href="https://github.com/Jap-Pea" target="_blank" rel="noopener"
+          >Visit Profile</a
+        >
       </div>
 
       <div class="card card-bg-strengths">
         <h3>Strengths Profile</h3>
         <p>Strengths Evaluation PDF</p>
-        <a href="assets/StrengthsProfile-Justin-Pringle.pdf" target="_blank"
+        <a
+          href="assets/StrengthsProfile-Justin-Pringle.pdf"
+          target="_blank"
+          rel="noopener"
           >Open PDF</a
         >
       </div>
 
       <div class="card card-bg-identity">
-        <h3>Identity & Values</h3>
+        <h3>Identity &amp; Values</h3>
         <p>Reflections and personal growth blog</p>
         <a href="blog/identity-values.html">Read More</a>
       </div>
@@ -141,11 +162,12 @@
         playsinline
         controls
       >
-        <source src="/assets/rickroll.mp4" type="video/mp4" />
+        <source src="assets/rickroll.mp4" type="video/mp4" />
       </video>
       <br />
       <button id="closeBtn">Close</button>
     </div>
+
     <div class="videocard">
       <button id="showVideoBtn">Click for a surprise 😉</button>
     </div>
