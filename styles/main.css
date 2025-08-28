@@ -11,7 +11,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Soft blur + tint */
+/* ===== Soft blur + tint ====== */
 
 body::before {
   content: '';
@@ -30,7 +30,7 @@ body::before {
   box-sizing: border-box;
 }
 
-/* Links & buttons */
+/* ====== Links & buttons ====== */
 a,
 button {
   text-decoration: none;
@@ -65,9 +65,9 @@ footer {
   color: #fff;
   padding: 20px;
   flex-wrap: wrap;
-  position: sticky; /* keep it on top */
+  position: sticky;
   top: 0;
-  z-index: 2000; /* ABOVE everything else */
+  z-index: 2000;
 }
 
 .logo-and-admin {
@@ -103,7 +103,7 @@ footer {
   cursor: pointer;
 }
 
-/* Hamburger */
+/* ====== Hamburger ====== */
 .menu-toggle {
   display: inline-block;
   background: #444;
@@ -115,7 +115,7 @@ footer {
   color: #fff;
 }
 
-/* Quick Links dropdown (closed by default) */
+/* ====== Quick Links dropdown (closed by default) ====== */
 .nav-links {
   display: none;
   flex-direction: column;
@@ -135,17 +135,17 @@ footer {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Shown (dropdown) */
+/* ====== Shown (dropdown) ====== */
 .nav-links.is-open {
   display: flex;
-  position: absolute; /* floats under the button on desktop */
+  position: absolute;
   right: 20px;
   top: 70px;
   min-width: 180px;
   z-index: 1000;
 }
 
-/* On small screens, let it push content down instead */
+/* == On small screens, let it push content down instead == */
 @media (max-width: 800px) {
   .top-nav {
     flex-direction: column;
@@ -256,7 +256,7 @@ footer {
   background-image: url('../assets/TeWhareTapaWhā.jpg');
 }
 
-/* ============ Blog content styles (inner pages) ============ */
+/* ====== Blog content styles (inner pages) ====== */
 .blog-post {
   max-width: 800px;
   margin: 0 auto;
@@ -308,7 +308,7 @@ th {
   background: #333;
 }
 
-/* ============ Video card ============ */
+/* ====== Video card ====== */
 #videoContainer {
   margin-top: 20px;
   text-align: center;
@@ -333,7 +333,7 @@ iframe {
   margin: 20px auto;
 }
 
-/* ============ Matrix canvas ============ */
+/* ====== Matrix canvas ====== */
 #matrixCanvas {
   position: fixed;
   inset: 0;
@@ -342,7 +342,7 @@ iframe {
   pointer-events: none;
 }
 
-/* ============ Responsive tweaks ============ */
+/* ====== Responsive tweaks ====== */
 @media (max-width: 1024px) {
   body {
     padding: 80px 40px;
