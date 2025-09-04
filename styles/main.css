@@ -256,6 +256,10 @@ footer {
   background-image: url('../assets/TeWhareTapaWhā.jpg');
 }
 
+.card-bg-problem-solving::after {
+  background-image: url('../assets/problem-solving.jpg');
+}
+
 /* ====== Blog content styles (inner pages) ====== */
 .blog-post {
   max-width: 800px;
