@@ -260,6 +260,10 @@ footer {
   background-image: url('../assets/problem-solving.jpg');
 }
 
+.card-bg-reflections::after {
+  background-image: url('../assets/thoughts.jpg');
+}
+
 /* ====== Blog content styles (inner pages) ====== */
 .blog-post {
   max-width: 800px;
